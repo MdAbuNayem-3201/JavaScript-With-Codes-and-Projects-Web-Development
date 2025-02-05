@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding: 0;;
+}
+.heading{
+    background-color: #03371a;
+    height:10vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(103, 211, 223);
+}
+
+button,.input-button{
+    border: 2px solid rgb(83, 14, 91);
+    margin-top: 100px;
+    border-radius: 15%;
+    width: 200px;
+    height: 50px;
+    background-color: #5ea4ef;
+    margin-left: 100px;
+    cursor: pointer;
+    color:rgb(9, 9, 54);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+}

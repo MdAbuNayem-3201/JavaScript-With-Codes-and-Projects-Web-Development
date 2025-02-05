@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON (JavaScript Object Notation)</title>
+</head>
+<body>
+
+
+    <script>
+        //JSON is a data format, jS object is a data Structure
+        //JSON is not the same as  JS object, but similer
+        //JSON common in network calls and data storage
+        //String are easu to transport over network
+        //JSON required double quota for keys
+        let product = {
+            name : "T-Shirt",
+            price :567,
+            rating : {
+                stars : 4.5,
+                noOfReviews : 445,
+            }
+        }
+
+        //JSON is a data format, jS object is a data Structure
+        //JSON is not the same as  JS object, but similer
+        //JSON common in network calls and data storage
+        //String are easu to transport over network
+        //JSON required double quota for key and value
+
+
+        console.log(typeof product)
+        console.log(product)
+
+        //convert object to string
+        console.log("\n\nconvert object to string:")
+        let str = JSON.stringify(product);
+        console.log("type:", typeof str)
+        console.log(str)
+
+
+        //convert string to object
+        let newProduct = JSON.parse(str);
+        console.log(typeof newProduct)
+        console.log("\n\nConvert string to object:", newProduct);
+
+
+    </script>
+</body>
+</html>

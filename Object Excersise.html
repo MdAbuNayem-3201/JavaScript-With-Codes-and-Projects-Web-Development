@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Excersise</title>
+  </head>
+
+  <body>
+    <script>
+      const product = {
+        itemName: "Flower",
+        price: 100,
+        discount: 20,
+        itemCode: "F40",
+      };
+
+      //Factory Function
+
+      function createProduct(name, price, discount, itemCode) {
+        return {
+          itemName: name,
+          price: price,
+          discount: discount,
+          itemCode: itemCode,
+          calDiscount(){
+            return price * discount / 100;
+          }
+        };
+      }
+
+      const mobile = createProduct("Mobile", 100000, 20, "Oppo F17");
+      console.log(mobile);
+      console.log("Mobile Price", mobile.price);
+      console.log(mobile.calDiscount())
+
+      //constructor function
+      function Product(name, price, discount, itemCode) {
+        this.name = name;
+        this.price = price, 
+        this.discount, 
+        this.itemCode;
+        this.discountValue = function(){
+            return price * discount / 100;
+        }
+      }
+
+      const football = new Product("Football", "10000", 10, "F33");
+      console.log(football);
+      console.log(football.name);
+      console.log(football.discountValue())
+    </script>
+  </body>
+</html>

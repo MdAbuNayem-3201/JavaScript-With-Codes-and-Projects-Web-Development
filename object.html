@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All About Object</title>
+</head>
+
+<body>
+    <script>
+        const course = {
+            lecture: 10,
+            section: 3,
+            title: 'JavaScript',
+            notes: {       //object
+                ontroduction: "Welcome to js course"
+            },
+
+            enroll() {    //fuction
+                console.log("You are successfully enrolled...")
+            }
+        }
+
+        //access
+        console.log(course.lecture);
+        console.log(course.enroll);
+        console.log(course.notes);
+        console.log(course);
+
+
+        console.log("Updating object......");
+        course.price = 1000;
+        console.log(course.price);    //dot notation
+        console.log(course['price']); //square bracket notation
+
+
+        //Factory Fuction
+        console.log("\n\n\n----------------Factory Fuction-----------------")
+        function createCourse() {
+            course = {
+                lecture: 10,
+                section: 3,
+                title: 'JavaScript',
+                notes: {       //object
+                    ontroduction: "Welcome to js course"
+                },
+
+                enroll() {    //fuction
+                    console.log("You are successfully enrolled...")
+                }
+            }
+
+            return course;
+        }
+
+        console.log(course.lecture);
+        console.log(course.enroll);
+        console.log(course.notes);
+        console.log(course);
+
+
+        console.log("Updating object......");
+        course.price = 1000;
+        console.log(course.price);    //dot notation
+        console.log(course['price']); //square bracket notation
+
+
+
+
+        /*
+        console.log("\n\n\n----------------Factory Fuction using return keyword-----------------");
+        function createCourse(){
+             return {
+                lecture: lecture,
+                section: sections,
+                title: title,
+                notes: {       //object
+                    ontroduction: "Welcome to js course"
+                },
+  
+                enroll() {    //fuction
+                    console.log("You are successfully enrolled...")
+                }
+            }
+        }
+  
+        let lecture = prompt("Enter  no. of lectures: ");
+        let sections = prompt("Enter no. of sections:");
+        let title = prompt("Title of the course:");
+        const courses = createCourse(lecture,sections,title);
+  
+        console.log(courses);
+        console.log(courses.lecture);
+        console.log(courses.enroll());
+        */
+
+        //Constructor Fuction
+        console.log("\n\n\n--------------Constructor Fuction:------------\n\n\n");
+
+        function CreateCourse(lecture, sections, title) {          //name should be same as class name
+
+            this.lecture = lecture,
+            this.section= sections,
+            this.title= title,
+            notes = {       //object
+                ontroduction: "Welcome to js course"
+            },
+
+            this.enroll = function(){
+                console.log("Welcome to the courses......")
+            }
+            price =1000;
+
+        }
+
+        let lecture = prompt("Enter  no. of lectures: ");
+        let sections = prompt("Enter no. of sections:");
+        let title = prompt("Title of the course:");
+
+
+        const coursess = new CreateCourse(lecture, sections, title);
+        console.log(coursess)
+        console.log(coursess.title)
+        console.log(coursess.price)
+
+        //Delete key of the object
+        delete coursess.price
+        console.log(coursess)
+
+        console.log("\n\n\n -------Add a functionn to the object-------");
+        coursess.checkEnrollment = function(){
+            console.log("30 students are enrolled-----");
+        }
+        console.log(coursess)
+        console.log(coursess.constructor)
+
+
+
+        //pass by value
+        console.log("\n\n\n-------------Pass by value-------------");
+        let a = 10;
+        let b = a;
+        console.log(a)
+        console.log(b)
+        //update value of a
+        console.log(a)
+        console.log(b);  //only value of b is changed
+
+
+
+
+        //pass by reference
+        console.log("\n\n\n----------------Pass by reference---------------");
+        let obj = {
+            number : 100
+        }
+
+        let obj_1 = obj
+        console.log(obj);
+        console.log(obj_1)
+
+        //update value
+        obj_1.number =333;
+        console.log(obj)
+        console.log(obj_1)
+              //we only change the value of obj_2 but the value of obj also changed. It is because in obj_1 assigned the location of obj. so if we change only one's the volue at that location is changed and the new value is shows of that mamory location.
+        
+
+        //pass by value in object using spread operator (...)
+        console.log("\n\n\n-------pass by value in object using spread operator (...)---------")
+        const course_1 = {
+            title : "JavaScript",
+            enrolled() {
+                console.log("100 students is enrolled to the course....")
+            }
+        }
+
+        const course_2 = {
+            ...course_1
+        }
+        console.log(course_1)
+        console.log(course_2)
+
+
+        //update the value of obj_2
+        course_2.title ="Python";
+        console.log(course_1)
+        console.log(course_2)    //this time only the value of course_2 is changed because of pass by value
+
+
+        //use Object.assign(target, source) method to copy
+        console.log("\n\n\n------------use Object.assign(target, source) method to copy------------")
+        const coursee =  Object.assign({},course_1)
+        console.log(coursee)
+
+        //update value of coursee
+        coursee.title = "C++";
+        console.log(coursee)
+        console.log(course_1)
+
+
+        //use for...in loop to iterate the obj
+        console.log("\n\n------Iteration using for....in loop-------")
+        for(let key in course_1){
+            console.log(key,  course_2[key]);
+
+        }
+
+        console.log("\n\n------Iteration using for....of loop-------")
+        for(let key of Object.keys(course_2)){
+            console.log(key,  course_2[key]);
+            
+        }
+
+        //we can copy one object crom another using loop
+        console.log("\n\n\n--------we can copy one object crom another using loop--------")
+
+        const course_3 = {};
+         for(let key in course_2){
+            course_3[key] = course_2[key]
+        }
+        console.log(course_3)
+
+        //update value of course_3
+        course_3.title = "C"
+        console.log(course_2)
+        console.log(course_3)
+        
+    </script>
+</body>
+
+</html>

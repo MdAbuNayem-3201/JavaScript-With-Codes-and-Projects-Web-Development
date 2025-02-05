@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+
+<body id="body">
+    <ul id="element" data="valid"> <!-- data="valid" randomly created attribute -->
+        <!-- when we assign id to a element, that element become globally accessable. which means that tag become global variable -->
+        <li id="firstElement">First element</li>
+        <li id="secondElement">Second element</li>
+        <li class="list-Items">Third element</li>
+        <li class="list-Items">Fourth element</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <td>First</td>
+                <td>Second</td>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>One</td>
+            <td>Two</td>
+        </tr>
+        <tr>
+            <td>Three</td>
+            <td>Four</td>
+        </tr>
+
+
+    </table>
+
+    <p>Hi, I am Nayem.</p>
+    <p class="para">Hi, I am Nayem.</p>
+    <p class="para">Hi, I am Nayem.</p>
+
+    <!-- if we assign an id to an element that id becommes global variable -->
+     <pre id="nazrul">Kazi Nazrul Islam</pre>
+    <pre id="robindranath">Robindranath Tagore</pre>
+    <br><br><br>
+
+
+    <button class="btn" onclick="alert('Welcome to the website!')">Click Me</button>
+    <button class="btn1">Click Me1</button>
+    <button class="btn2">Click Me2</button>
+    <button class="btn3">Click Me3</button>
+    <button class="btn4">For remove eventListner</button>
+    <button class="btn5">Event Object</button>
+
+    <script>
+        //access Root node
+        console.log(document.documentElement)
+
+        //access body and head
+        console.log(document.body)
+        console.log(document.head)
+
+
+        //child nodes
+        console.log("\n\nAccessing child nodes")
+        console.log(document.body.childNodes)
+        console.log(document.body.children)
+        console.log(document.body.children[0])
+        console.log(document.body.children[1])
+        console.log("\n\nAccess child nodes using for loop")
+        for (let node of document.body.children) {
+            console.log(node)
+        }
+
+
+        //if we want to apply array methods, we have to make them as array
+        console.log("\n\nif we want to apply array methods, we have to make them as array---------")
+        const childrenOfBody = Array.from(document.body.children)
+        console.log(childrenOfBody)
+
+        //access siblings
+        console.log("\n\nAccess siblings from one element to another--->>>")
+        const ulTag = document.body.children[0]
+        console.log("Next sibling of ul tag is---", ulTag.nextSibling)
+        console.log("Next element sibling of ul tag is---", ulTag.nextElementSibling)
+
+        const firstLi = ulTag.children[0]
+        const secondLi = ulTag.children[1]
+        console.log("Next element sibling of li tag is---", firstLi.nextElementSibling)
+        //access text content of first li
+        console.log("Text content of Next element sibling of li tag is---", firstLi.nextElementSibling.textContent)
+
+        console.log("Previous element sibling of li tag is---", secondLi.previousElementSibling)
+        //access text content of first li
+        console.log("Text content of previous element sibling of li tag is---", secondLi.previousElementSibling.textContent)
+
+
+        //Table DOM manipulation
+        console.log("\n\n\nTable DOM manipulation--->>")
+        const tableTag = document.body.children[1]
+        console.log(tableTag.tBodies)    //tBody can present multiple times
+        console.log(tableTag.tBodies[0].rows)
+        //access perticular row's cells
+        console.log(tableTag.tBodies[0].rows[0].cells)
+        console.log(tableTag.tBodies[0].rows[0].cells[0]) //access first cell of the row
+
+        //access cell content
+        console.log(tableTag.tBodies[0].rows[0].cells[1].textContent)
+
+
+        //if we want to see the rows of a table 
+        console.log(tableTag.rows)
+
+
+
+        //apply style
+        console.log("\n\nApply style by js---->>>")
+        console.log(tableTag.tBodies[0].rows[0].cells[1].style = "background-color: aqua")
+        console.log(tableTag.tBodies[0].rows[0].style = "background-color : green")
+        tableTag.tHead.rows[0].style = "background-color : yellow"
+        console.log(tableTag.tBodies[0].rows[1].style = "background-color : blue")
+
+
+        //access by id
+        console.log("\n\n Access element by id---->>.")
+        firstElement.style.backgroundColor = "red";
+
+        const secondElemet = document.getElementById("#secondElement")
+        secondElement.style.color = "blue";
+
+        //Access element by class name
+        console.log("\n\n\nAccess element by class name--->>>")
+        const listItems = document.getElementsByClassName(".list-Items");
+        console.log(listItems)
+
+        const paras = document.getElementsByClassName(".para");
+        console.log(paras)
+
+
+        //access by query selector
+        const parass = document.querySelectorAll(".para");
+        console.log(parass)
+
+
+        //access by tag name
+        console.log("\n\nAccess element by tag name")
+        const para = document.getElementsByTagName("p")
+        para[0].style.color = "red"
+        console.log(para[0].textContent)
+
+
+
+        //attributes
+        console.log("\n\nAccess attributes---->>>")
+
+        console.log(element.id)
+        console.log(element.data)    //we can access the pre-defined attributes by id. we can not access this randamly created attribute by using id or class, for this we need below method to access
+
+        console.log(element.getAttribute("data"));
+        element.setAttribute("font-family", "Times new roman")
+        console.log(element.hasAttribute("font-family")) //this attribute is used for chacking any attribute exist or not.......returns true or false
+        element.removeAttribute('font-family');    //remove any attribute
+        console.log(element.hasAttribute("font-family"))
+        //to see all the attribute of an element
+        console.log(element.attributes);
+
+
+        //creating and removing the nodee elements
+        const newDiv = document.createElement('div');   //create a div
+        const newText = document.createTextNode("..........Hi, This is Michel..............")  //create text node
+        newDiv.appendChild(newText)   //add text node to the empty created div
+        //after
+        const ulTagg = document.querySelectorAll(".para")
+        ulTagg[1].after(newDiv);
+        //append  ----->>> add an element inside the selected element but after all the element of the selected node
+        const div2 = document.createElement('div')
+        newText2 = document.createTextNode("This div 2");
+        div2.appendChild(newText2)
+        newDiv.append(div2)
+
+        //prepend----add element inside the selected element but before all the child element of the selected element
+        const div3 = document.createElement('div')
+        newText3 = document.createTextNode("This div 3");
+        div3.appendChild(newText3)
+        newDiv.prepend(div3)
+
+        //before---add element before the selected element 
+        const div4 = document.createElement('div');
+        newText4 = document.createTextNode("This is div 4");
+        div4.appendChild(newText4);
+        newDiv.before(div4)
+
+        
+        //innerContent
+        //To  avoid previous hard steps---which is create an emppty div, add text inside that div and add to the body....we can use an simple method--->>>
+        const divv = document.createElement("div");
+        divv.textContent =  "Hello World!";
+        newDiv.after(divv);
+
+
+        //innnerHTML
+        //when we want to add html code to the selected element....we need to use innerHTML method
+        divv.innerHTML = `<pre>The world is created by Allah</pre>
+        <p>All the things are under control of him.<p>`
+
+
+        //replace an element by js
+        const biddashagore = document.createElement('pre')
+        biddashagore.textContent = 'Biddashagorh'
+        nazrul.replaceWith(biddashagore)
+
+        //remove an element
+        robindranath.remove();
+
+
+        
+
+
+
+
+
+        //Evnet Listner
+        console.log("\n\n\n<<<<<<<<<<-------------Event listner/handler------------>>>>>>>");
+
+        //1. inline handling
+        //2. function
+        const btn1 = document.querySelector(".btn1");
+        btn1.onclick = function(){
+            alert("Hi, You are hacked by Nayem...")
+        }
+
+        //another way of previous type of handling
+        const btn2 = document.querySelector(".btn2");
+        btn2.onclick = function(){
+            alert("Hi, You are hacked by Nayem...")
+        }
+
+        function showMessage(){
+            alert("This the alternative method.......")
+        }
+
+        btn2.onclick = showMessage  //do not call the function like ->showMessage().... only define the function   (showMesssage)
+        
+
+        //3. addEventListner   ---->>> most used way and simple
+        const btn3 = document.querySelector(".btn3");
+        btn3.addEventListener('click', showMessages);
+
+        function showMessages() {
+            alert("Message-1: Welcome to Nym Zone");
+            alert("Message-2: You will be able to get happiness");
+        }
+
+
+        const btn4 = document.querySelector(".btn4")
+        btn4.addEventListener('click', forRemove);
+
+        function forRemove(){
+            alert('This button is created for remove method of event listner');
+        }
+
+        btn4.removeEventListener('click',forRemove)   //pass same function which is used for add event listner
+
+
+        //access event object and its property
+        const btn5 = document.querySelector(".btn5")
+        btn5.addEventListener('click', eventObj);
+
+        //to see console.log output--- go  to browser console
+        function eventObj(event){   // e = event = event object
+            console.log(event.type);
+            console.log(event.currentTarget)
+            console.log(event.clientX)
+            console.log(event.clientY)
+            alert("Event Object")
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

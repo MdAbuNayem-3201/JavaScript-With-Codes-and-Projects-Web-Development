@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event in JavaScript</title>
+    <link rel="stylesheet" href="Event.css">
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: #28cab7;
+        }
+
+        #btn3 {
+            margin: 10px 0;
+        }
+
+        #box2 {
+            height: 100px;
+            width: 100px;
+            background-color: #162f05;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- inline event handling -->
+    <button onclick="console.log('You clicked on the button...');alert('Welcome to The Website...');">Click Me</button>
+
+    <button ondblclick="alert('Welcome to The Website...');console.log('You clicked on the button...');">Click Me
+        2x</button>
+
+    <div id="box" onmouseover="console.log('You are inside the box div...')">
+        <!-- style is given by  style tag -->
+        This is a box.
+    </div>
+
+
+    <!-- For event handling by js -->
+    <button id="btn3">Press on Me</button>
+
+    <div id="box2">
+        <!-- style is given by  style tag -->
+        This is a box.
+    </div>
+
+    <!-- event object -->
+    <button id="btn4">Press on Me</button>
+
+
+    <!-- For event object -->
+    <button id="btn5">
+        Click Me for Object event
+    </button>
+
+
+    <!-- For add.eventListner() -->
+    <button id="btn6">
+        Click Me
+    </button>
+
+
+    <!-- For add.eventListner() -->
+    <button id="btn7">
+        To remove Event listners
+    </button>
+
+
+
+
+
+    <!-- Practice question-> Create a toggle button that changes the screen to dark-mode when clicked and light mode when clicked again -->
+    <br><br><br><br>
+    <button id="mode">Change Mode</button><br><br>
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore blanditiis mollitia fugit error explicabo facere quasi rem ad minus, quidem earum quos a! Sequi placeat distinctio accusantium eum quis itaque!
+    Quae fuga minus iure culpa eligendi asperiores quaerat porro iusto enim ipsa, aliquid ab, repellat ea nesciunt quia quos alias placeat saepe, voluptatem laborum voluptate debitis. Voluptates ullam odio quam.
+    Rem fugit reprehenderit amet ea? Quaerat maiores atque possimus similique molestiae ullam qui. Commodi, inventore quia itaque, asperiores ullam corrupti rerum repudiandae possimus molestiae nemo dolor reprehenderit, corporis odio rem.
+    Eum odio debitis fuga nemo cumque sunt ipsa ut pariatur, animi magni, facere perferendis illum. Quibusdam nulla earum ipsam perspiciatis. Enim quod non cupiditate possimus iste temporibus tempora, sapiente deleniti.
+    Quis quidem ipsum totam eveniet, nam maxime! Impedit voluptatibus velit ipsum. Eius optio reiciendis odio nobis quaerat corporis sit reprehenderit ad non nulla ducimus accusantium consequatur facere, architecto dignissimos rem!0
+
+
+
+
+    <script src="Event in JS.js"></script>
+</body>
+
+</html>
